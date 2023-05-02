@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  a(href='/bicicletas') Volver
+  br
+  br
+  br
+  h1 Actualizar bicicleta # #{bici.id}
+  br
+  br
+  form(action='/bicicletas/:id/update' method='post')
+    input(type='hidden' name='id', value=bici.id)
+    br
+    label(for='color') Color:
+    select(name='color' id='', selected=bici.color ,required)
+      each val in ['--select--','Blanco' , 'Negro' , 'Rojo','Verde']
+        option=val
+    //input#id(type='text' name='color', required)
+    br
+    label(for='modelo') Modelo:
+    select(name='modelo' id='', required)
+      each val in ['--select--','Ruta' , 'Cross' , 'Montian','Turismo']
+        option=val
+    //input#id(type='text' name='modelo',required)
+    br
+    label(for='lat') Latitud:
+    input#id(type='text' name='lat', value=bici.latitud, required)
+    br
+    label(for='lng') Longitud:
+    input#id(type='text' name='lng', value=bici.longitud, required)
+    br
+    br
+    input.btn(type='submit' name='OK' )

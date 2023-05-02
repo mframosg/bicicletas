@@ -1,0 +1,26 @@
+extend ../layout
+
+block content
+
+  a(href='http://localhost:3000/bicicletas') Home
+  br
+  h1 Bicicleta # #{bici.id}
+  br
+  h2 Datos de la bicicleta
+  br
+  table.table
+    thead
+      tr
+        th(scope='col') #Id
+        th(scope='col') Color
+        th(scope='col') Modelo
+        th(scope='col') Ubicacion
+    tbody
+      tr
+        td(scope='row')=bici.id
+        td=bici.color
+        td=bici.model
+        td=bici.location
+        td
+          a(href='/bicicletas/'+bici.id+'/update') editar
+        td
