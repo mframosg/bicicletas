@@ -5,6 +5,16 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-L.marker([6.157728, -75.594198]).addTo(map)
-    .bindPopup('casa')
-    .openPopup();
+
+var bicycles = JSON.parse(document.currentScript.dataset.var);
+
+
+console.log(bicycles)
+
+bicycles.forEach(element => {
+    
+    L.marker([element.latitud, element.longitud]).addTo(map);
+
+});
+
+

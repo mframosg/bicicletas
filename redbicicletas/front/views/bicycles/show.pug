@@ -19,8 +19,8 @@ block content
       tr
         td(scope='row')=bici.id
         td=bici.color
-        td=bici.model
-        td=bici.location
+        td=bici.modelo
+        td=bici.latitud + ", "+ bici.longitud
         td
           a(href='/bicicletas/'+bici.id+'/update') editar
         td

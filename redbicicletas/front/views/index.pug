@@ -23,7 +23,7 @@ block content
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.ms-auto.mb-2.mb-lg-0
           li.nav-item
-            a.nav-link.active(aria-current='page' href='#!') Home
+            a.nav-link.active(aria-current='page' href='/') Home
           li.nav-item
             a.nav-link(href='/bicicletas') Bicicletas
   // Header
@@ -49,6 +49,6 @@ block content
   // Bootstrap core JS
   script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
   // Core theme JS
-  script(src='js/scripts.js')
+  script(src='javascripts/auth.js')
 
-  script(src='/javascripts/map.js')
+  script(data-var=bicycles,src='javascripts/map.js')
