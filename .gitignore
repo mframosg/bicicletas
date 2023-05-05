@@ -19,6 +19,8 @@ node_modules/
 ./crud/node_modules
 ./front/node_modules
 
+/bicicletas.db
+
 # Tests
 /coverage
 /.nyc_output

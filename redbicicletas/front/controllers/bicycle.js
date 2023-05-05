@@ -11,7 +11,7 @@ exports.create_get = function (req, res) {
 exports.create_post = function (req, res, next) {
   const options = {
     method: 'POST',
-    url: "http://localhost:3000" + '/api/bicicletas/create',
+    url: "http://crud:3000" + '/api/bicicletas/create',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -35,7 +35,7 @@ exports.create_post = function (req, res, next) {
 };
 
 exports.update_get = function (req, res, next) {
-  const endpoint = "http://localhost:3000" + '/api/bicicletas/' + req.params.id + '/show'
+  const endpoint = "http://crud:3000" + '/api/bicicletas/' + req.params.id + '/show'
   console.log(req.params.id);
   http.get(endpoint, (resp) => {
     let data = '';
@@ -58,7 +58,7 @@ exports.update_post = function (req, res, next) {
   console.log(req.body);
   const options = {
     method: 'PUT',
-    url: "http://localhost:3000" + '/api/bicicletas/' + req.body.id + '/update',
+    url: "http://crud:3000" + '/api/bicicletas/' + req.body.id + '/update',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -86,7 +86,7 @@ exports.alquilar = function (req, res, next) {
   console.log(req.body);
   const options = {
     method: 'PUT',
-    url: "http://localhost:3000" + '/api/bicicletas/' + req.body.id + '/alquilar',
+    url: "http://crud:3000" + '/api/bicicletas/' + req.body.id + '/alquilar',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -107,7 +107,7 @@ exports.alquilar = function (req, res, next) {
 };
 
 exports.list = function (req, res, next) {
-  const list_bicycle_endpoint = "http://localhost:3000" + '/api/bicicletas/list'
+  const list_bicycle_endpoint = "http://crud:3000" + '/api/bicicletas/list'
   const endpoint = list_bicycle_endpoint
   http.get(endpoint, (resp) => {
     let data = '';
@@ -134,7 +134,7 @@ exports.list = function (req, res, next) {
 
 
 exports.list2 = function (req, res, next) {
-  const list_bicycle_endpoint = "http://localhost:3000" + '/api/bicicletas/list'
+  const list_bicycle_endpoint = "http://crud:3000" + '/api/bicicletas/list'
   const endpoint = list_bicycle_endpoint
   http.get(endpoint, (resp) => {
     let data = '';
@@ -153,7 +153,7 @@ exports.list2 = function (req, res, next) {
 };
 
 exports.show = function (req, res, next) {
-  const endpoint = "http://localhost:3000" + '/api/bicicletas/' + req.params.id + '/show'
+  const endpoint = "http://crud:3000" + '/api/bicicletas/' + req.params.id + '/show'
   console.log(req.params.id);
   http.get(endpoint, (resp) => {
     let data = '';
@@ -174,7 +174,7 @@ exports.show = function (req, res, next) {
 exports.delete = function (req, res, next) {
   const options = {
     method: 'DELETE',
-    url: "http://localhost:3000" + '/api/bicicletas/' + req.body.id + '/delete'
+    url: "http://crud:3000" + '/api/bicicletas/' + req.body.id + '/delete'
   };
 
   request(options, function (error, response, body) {
