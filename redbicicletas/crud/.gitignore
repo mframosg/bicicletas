@@ -15,6 +15,9 @@ lerna-debug.log*
 .DS_Store
 /node_modules
 
+# DB
+/database/bicicletas.db
+
 # Tests
 /coverage
 /.nyc_output
