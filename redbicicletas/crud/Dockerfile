@@ -9,5 +9,5 @@ RUN npm install
 
 COPY . /app
 # ENV PORT 8080
-EXPOSE 1111
+EXPOSE 4000
 ENTRYPOINT [ "npm", "start"]
