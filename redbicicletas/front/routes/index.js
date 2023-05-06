@@ -3,11 +3,11 @@ var router = express.Router();
 
 const bicicletaController = require("../controllers/bicycle");
 const homeController = require('../controllers/home')
-//const loginController = require('../controllers/login')
+const loginController = require('../controllers/login')
 
 router.get("/", bicicletaController.list2)
-//router.get("/login", loginController.showlogin)
-//router.get("/google-login", loginController.login)
+router.get("/login", loginController.showlogin)
+router.get("/google-login", loginController.login)
 router.get("/bicicletas", bicicletaController.list);
 router.get("/bicicletas/:id/show", bicicletaController.show);
 router.get("/bicicletas/create", bicicletaController.create_get);

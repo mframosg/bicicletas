@@ -1,33 +1,29 @@
 extends ../layout
 
 block content
-  a(href='/bicicletas') Volver
-  br
-  br
-  br
-  h1 Actualizar bicicleta # #{bici.id}
-  br
-  br
-  form(action='/bicicletas/:id/update' method='post')
-    input(type='hidden' name='id', value=bici.id)
-    br
-    label(for='color') Color:
-    select(name='color' id='', selected=bici.color ,required)
-      each val in ['--select--','Blanco' , 'Negro' , 'Rojo','Verde']
-        option=val
-    //input#id(type='text' name='color', required)
-    br
-    label(for='modelo') Modelo:
-    select(name='modelo' id='', required)
-      each val in ['--select--','Ruta' , 'Cross' , 'Montian','Turismo']
-        option=val
-    //input#id(type='text' name='modelo',required)
-    br
-    label(for='lat') Latitud:
-    input#id(type='text' name='lat', value=bici.latitud, required)
-    br
-    label(for='lng') Longitud:
-    input#id(type='text' name='lng', value=bici.longitud, required)
-    br
-    br
-    input.btn(type='submit' name='OK' )
+  .container
+    .row.justify-content-center.my-5
+      .col-lg-6
+        a.btn.btn-secondary.mb-3(href='/bicicletas') Volver
+        h1 Actualizar bicicleta # #{bici.id}
+        form(action='/bicicletas/:id/update', method='post')
+          input(type='hidden', name='id', value=bici.id)
+          .form-group
+            label(for='color') Color:
+            select.form-control(name='color', id='', required)
+              option(value='', disabled selected)--select--
+              each val in ['Blanco', 'Negro', 'Rojo', 'Verde']
+                option(value=val, selected=bici.color === val)= val
+          .form-group
+            label(for='modelo') Modelo:
+            select.form-control(name='modelo', id='', required)
+              option(value='', disabled selected)--select--
+              each val in ['Ruta', 'Cross', 'Montian', 'Turismo']
+                option(value=val, selected=bici.modelo === val)= val
+          .form-group
+            label(for='lat') Latitud:
+            input.form-control#id(type='text', name='lat', value=bici.latitud, required)
+          .form-group
+            label(for='lng') Longitud:
+            input.form-control#id(type='text', name='lng', value=bici.longitud, required)
+          button.btn.btn-primary(type='submit', name='OK') Update Bicycle

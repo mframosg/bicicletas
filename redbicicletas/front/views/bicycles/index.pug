@@ -1,4 +1,4 @@
-extend ../layout
+extends ../layout
 
 block content
   header
@@ -6,34 +6,34 @@ block content
     br
     br
     a(href='/bicicletas/create') Nueva Bicicleta
-    table.table
-      thead
+  br
+  br
+  table.table.table-striped.table-bordered.table-hover.shadow
+    thead
+      tr
+        th(scope='col') #ID
+        th(scope='col') Color
+        th(scope='col') Modelo
+        th(scope='col') Ubicacion
+        th(scope='col') Acciones
+    tbody
+      each bici in bicycles
         tr
-          th(scope='col') #ID
-          th(scope='col') Color
-          th(scope='col') Modelo
-          th(scope='col') Ubicacion
-      tbody
-        each bici in bicycles
-          tr
-            td(scope='row')=bici.id
-            td=bici.color
-            td=bici.modelo
-            td=bici.latitud+","+bici.longitud
-            td
-              a(href='/bicicletas/'+bici.id+'/show') Mostrar
-            td
-              a(href='/bicicletas/'+bici.id+'/update') editar
-            td
-              form.inline(method='post' action='/bicicletas/'+bici.id+'/delete')
+          td(scope='row')=bici.id
+          td=bici.color
+          td=bici.modelo
+          td=bici.latitud+","+bici.longitud
+          td
+            a.btn.btn-primary(href='/bicicletas/'+bici.id+'/show') Mostrar
+            a.btn.btn-success(href='/bicicletas/'+bici.id+'/update') editar
+            form.inline(method='post' action='/bicicletas/'+bici.id+'/delete')
+              input(type='hidden' name='id' value=bici.id)
+              button.btn.btn-danger(type='submit' name='submit_param' value='submit_value' class='.btn')='Eliminar'
+          td
+            if bici.alquilada === null
+              form.inline(method='post' action='/bicicletas/'+bici.id+'/alquilar')
                 input(type='hidden' name='id' value=bici.id)
-                button.link-button(type='submit' name='submit_param' value='submit_value' class='.btn')='Eliminar'
-            td
-              if bici.alquilada === null
-                form.inline(method='post' action='/bicicletas/'+bici.id+'/alquilar')
-                  input(type='hidden' name='id' value=bici.id)
-                  input(type='hidden' name='alquilada' value=iduser)
-                  button.link-button(type='submit' name='submit_param' value='submit_value' class='.btn')='Alquilar'
-              else
-                p Ya alquilada
-            
+                input(type='hidden' name='alquilada' value=iduser)
+                button.btn.btn-warning(type='submit' name='submit_param' value='submit_value' class='.btn')='Alquilar'
+            else
+              p Ya alquilada

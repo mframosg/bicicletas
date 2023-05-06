@@ -5,27 +5,26 @@ block content
   br
   br
   br
-  h1 Nueva bicicleta
+  h1(style='text-align:center;') Nueva bicicleta
   br
   br
-  form(action='/bicicletas/create' method='post')
-    label(for='color') Color:
-    select(name='color' id='', required)
-      each val in ['--select--','Blanco' , 'Negro' , 'Rojo','Verde']
-        option=val
-    //input#id(type='text' name='color', required)
-    br
-    label(for='modelo') Modelo:
-    select(name='modelo' id='', required)
-      each val in ['--select--','Ruta' , 'Cross' , 'Montian','Turismo']
-        option=val
-    //input#id(type='text' name='model',required)
-    br
-    label(for='lat') Latitud:
-    input#id(type='text' name='latitud',required)
-    br
-    label(for='lng') Longitud:
-    input#id(type='text' name='longitud', required)
-    br
-    br
-    input.btn(type='submit' name='OK' )
+  form(action='/bicicletas/create', method='post', style='max-width: 400px; margin: 0 auto;')
+    .form-group
+      label(for='color') Color:
+      select.form-control(name='color', id='', required)
+        option(value='', disabled selected)--seleccione--
+        each val in ['Blanco' , 'Negro' , 'Rojo','Verde']
+          option(value=val)= val
+    .form-group
+      label(for='modelo') Modelo:
+      select.form-control(name='modelo', id='', required)
+        option(value='', disabled selected)--seleccione--
+        each val in ['Ruta' , 'Cross' , 'Montian','Turismo']
+          option(value=val)= val
+    .form-group
+      label(for='lat') Latitud:
+      input.form-control#id(type='text', name='latitud', required)
+    .form-group
+      label(for='lng') Longitud:
+      input.form-control#id(type='text', name='longitud', required)
+    button.btn.btn-primary(type='submit', name='OK', style='margin-top: 10px;') Crear bicicleta

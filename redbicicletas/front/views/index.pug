@@ -26,6 +26,11 @@ block content
             a.nav-link.active(aria-current='page' href='/') Home
           li.nav-item
             a.nav-link(href='/bicicletas') Bicicletas
+            // condition para mostrar el link de logout solo si el usuario esta logueado
+          li.nav-item
+            a.nav-link(href='/logout') Logout
+          li.nav-item
+            a.nav-link(href='/login') Login
   // Header
   div(style="text-align:center")
     h1 Bicicletas micro servicios por user

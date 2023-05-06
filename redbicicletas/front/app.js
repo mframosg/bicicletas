@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//var loginRouter = require('./routes/login')
+var loginRouter = require('./routes/login')
 const session = require('express-session');
 var passport = require('passport'); 
 require('./public/javascripts/auth')
@@ -30,7 +30,7 @@ app.get('/auth/google',
   passport.authenticate('auth-google', { scope: [ 'email', 'profile' ] }
 ));
 
-app.get( '/auth/google/callback',
+app.get( '/auth/googlecallback',
   passport.authenticate( 'auth-google', {
     successRedirect: '/bicicletas',
     failureRedirect: '/auth/google/'
